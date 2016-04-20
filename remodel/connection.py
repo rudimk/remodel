@@ -11,16 +11,17 @@ from .utils import Counter
 
 
 class Connection(object):
-    def __init__(self, db='test', host='localhost', port=28015, auth_key=''):
+    def __init__(self, db='test', host='localhost', port=28015, auth_key='', timeout=20):
         self.db = db
         self.host = host
         self.port = port
         self.auth_key = auth_key
+        self.timeout = timeout
         self._conn = None
 
     def connect(self):
         self._conn = r.connect(host=self.host, port=self.port,
-                               auth_key=self.auth_key, db=self.db)
+                               auth_key=self.auth_key, db=self.db, timeout=self.timeout)
 
     def close(self):
         if self._conn:
