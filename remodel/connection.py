@@ -11,7 +11,7 @@ from .utils import Counter
 
 
 class Connection(object):
-    def __init__(self, db='test', host='localhost', port=28015, auth_key='', timeout=20):
+    def __init__(self, db='test', host='localhost', port=28015, auth_key='', timeout=3600):
         self.db = db
         self.host = host
         self.port = port
